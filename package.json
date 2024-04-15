@@ -1,0 +1,26 @@
+{
+  "name": "eslint-plugin-dollar-sign-html-el",
+  "version": "1.0.0",
+  "description": "This ESLint plugin enforces the use of $ prefix for variable names representing HTML elements and $$ prefix for HTML element collections in JavaScript code.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint ."
+  },
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "javascript",
+    "html",
+    "coding-standards",
+    "best-practices",
+    "variable-naming",
+    "eslint-rule"
+  ],
+  "author": "okzea",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0"
+  }
+}
