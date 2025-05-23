@@ -4,7 +4,7 @@
   "description": "This ESLint plugin enforces the use of $ prefix for variable names representing HTML elements and $$ prefix for HTML element collections in JavaScript code.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha test/**/*.test.js",
     "lint": "npx eslint ."
   },
   "keywords": [
@@ -21,6 +21,7 @@
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.57.0",
-    "eslint-config-airbnb-base": "^15.0.0"
+    "eslint-config-airbnb-base": "^15.0.0",
+    "mocha": "^11.4.0"
   }
 }

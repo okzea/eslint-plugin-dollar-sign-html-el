@@ -27,18 +27,26 @@ module.exports = {
   create(context) {
     return {
       VariableDeclarator(node) {
-        if (
-          node.id.type === 'Identifier'
-          && !node.id.name.startsWith('$')
-          && (isHTMLElement(node.init) || isHTMLElementCollection(node.init))
-        ) {
-          const elementType = isHTMLElement(node.init) ? 'element' : 'collection';
-          const expectedPrefix = elementType === 'element' ? '$' : '$$';
+        if (node.id.type === 'Identifier' && node.init) {
+          const variableName = node.id.name;
+          const isElement = isHTMLElement(node.init);
+          const isCollection = isHTMLElementCollection(node.init);
 
-          context.report({
-            node,
-            message: `Variable representing HTML ${elementType} should start with ${expectedPrefix} prefix`,
-          });
+          if (isElement) {
+            if (!variableName.startsWith('$') || variableName.startsWith('$$')) {
+              context.report({
+                node,
+                message: 'Variable representing HTML element should start with $ prefix',
+              });
+            }
+          } else if (isCollection) {
+            if (!variableName.startsWith('$$')) {
+              context.report({
+                node,
+                message: 'Variable representing HTML collection should start with $$ prefix',
+              });
+            }
+          }
         }
       },
     };
